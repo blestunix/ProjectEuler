@@ -57,7 +57,7 @@ struct PalindromeProduct {
             return -1
         }
         let max = power(10, raisedTo: n)   // store the value of 10ⁿ 
-        for z in 2..<max {  // Since both x, y > 1 and z = x + y; which implies that z has a minimum value of 2
+        for z in 2..<max {  // Since both x, y > 0 and z = x + y; which implies that z has a minimum value of 2
             let left = max - z  // Start from the biggest
             let right = Int(String(String(left).reversed()))!
             let discriminant = power(z, raisedTo: 2) - 4 * right // b² - 4ac
