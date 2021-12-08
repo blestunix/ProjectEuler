@@ -1,9 +1,9 @@
 /*
- * Aim:  Largest prime factor
+ * Aim:  Largest palindrome product
  *
  * Author: Saud Kadiri
  *
- * Dated: Wednesday, November 17, 2021 and Thursday, November 18, 2021
+ * Dated: Wednesday, December 8, 2021
  *
  * Details:
  *    A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
