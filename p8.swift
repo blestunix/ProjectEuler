@@ -61,4 +61,3 @@ while (num.count > 12) {                                    // O(n) n: length(nu
 }
 print(largest.num, largest.value)
 // The product of digits in 5984669866755 is the largest i.e. 23514624000
-// Time complexity: O(n * k) where n is the number of digits and k is constant(i.e. 13) so O(n) 
