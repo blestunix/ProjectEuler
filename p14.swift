@@ -3,7 +3,7 @@
  *
  * Author: Saud Kadiri
  *
- * Dated: Tuesday, December 28, 2021
+ * Dated: Tuesday, December 28, 2021 and Wednesday, December 29, 2021
  *
  * Details:
  *   The following iterative sequence is defined for the set of positive integers:
@@ -17,20 +17,28 @@
  *    NOTE: Once the chain starts the terms are allowed to go above one million.
  */
 
-func rule(_ n: Int) -> Int {
-  n % 2 == 0 ? n / 2 : 3 * n + 1
+struct Collatz {
+    var d: [Int: Int] = [1: 1]
+
+    func rule(_ n: Int) -> Int {
+        n % 2 == 0 ? n / 2 : 3 * n + 1
+    }
+
+    @discardableResult
+    mutating func collatz(_ n: Int) -> Int {
+        d[n] = d[n] ?? 1 + collatz(rule(n))
+        return d[n]!
+    }
+
+    mutating func solve(upper_bound: Int) {
+        for i in 1..<upper_bound {
+            collatz(i)
+        }
+        let result = d.max { $0.1 < $1.1}!
+        print("\(result.0) has the longest chain (of size: \(result.1))")
+    }
 }
 
-var largest = -1
-for i in 1..<1_000_000 {
-  var n = i
-  var count = 1
-  while n != 1 {
-    n = rule(n)
-    count += 1
-  }
-  largest = max(largest, count)
-}
-
-print(largest)
-// 525
+var collatz = Collatz()
+collatz.solve(upper_bound: 1_000_000)
+// 837799 has the longest chain (of size: 525)
